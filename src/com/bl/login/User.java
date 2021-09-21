@@ -31,8 +31,16 @@ public class User extends HttpServlet {
 			flag = 1;
 		}
 		
+		Pattern pattern2 = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$");
+		Matcher matcher2 = pattern2.matcher(password);
 		
-		if (name.equalsIgnoreCase("Pratik")&&flag==1) {
+		int flagPass = 0;
+		while (matcher2.find()) {
+			flagPass = 1;
+		}
+		
+		
+		if ((name.equalsIgnoreCase("Pratik")&&flag==1)&&(flagPass==1)) {
 			printWriter.println("<font color=green><h1>login succesful</h1></font>");
 
 		} else {
